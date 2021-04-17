@@ -176,7 +176,7 @@ async def catalive():
         dyno = f"{AppHours}h {AppMinutes}m/{hours}h {minutes}m"
     except Exception as e:
         dyno = e
-    return f"Catuserbot Stats\
+    return f"Userbot Stats\
                  \n\nDatabase : {check_sgnirts}\
                   \nSudo : {sudo}\
                   \nUptime : {uptime}\
