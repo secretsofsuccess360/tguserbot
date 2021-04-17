@@ -289,7 +289,7 @@ async def variable(var):
         )
     heroku_var = app.config()
     await edit_or_reply(var, f"`Changing badcat to goodcat wait for 2-3 minutes.`")
-    heroku_var["UPSTREAM_REPO_BRANCH"] = "original"
+    heroku_var["UPSTREAM_REPO_BRANCH"] = "goodcat"
 
 
 CMD_HELP.update(
