@@ -21,11 +21,11 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
         query = event.text
         hmm = re.compile("secret (.*) (.*)")
         match = re.findall(hmm, query)
-        if query.startswith("**Catuserbot") and event.query.user_id == bot.uid:
+        if query.startswith("** ") and event.query.user_id == bot.uid:
             buttons = [
                 (
                     custom.Button.inline("Stats", data="stats"),
-                    Button.url("Repo", "https://github.com/sandy1709/catuserbot"),
+                    Button.url("BotBy", "https://t.me/xxDRTxx"),
                 )
             ]
             if CAT_IMG and CAT_IMG.endswith((".jpg", ".png")):
@@ -161,7 +161,7 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! Join @catuserbot17 help"
+            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(
@@ -178,7 +178,7 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! Join @catuserbot17 help "
+            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! "
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"secret_(.*)")))
@@ -194,7 +194,7 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
                     encrypted_tcxt = message["text"]
                     reply_pop_up_alert = encrypted_tcxt
                 else:
-                    reply_pop_up_alert = "why were you looking at this shit go away and do your own work, idiot"
+                    reply_pop_up_alert = "Sorry, You Don't have Permission to view this secret message."
             except KeyError:
                 reply_pop_up_alert = "This message no longer exists in bot server"
         else:
@@ -237,7 +237,7 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
                         caption=plugin_name,
                     )
         else:
-            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! Join @catuserbot17 help "
+            reply_pop_up_alert = "Please get your own userbot, and don't use mine! "
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
@@ -245,7 +245,7 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
         if event.query.user_id == bot.uid:
             await event.edit("menu closed")
         else:
-            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! Join @catuserbot17 help "
+            reply_pop_up_alert = "Please get your own userbot, and don't use mine! "
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stats")))
