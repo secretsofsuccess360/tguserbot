@@ -289,7 +289,7 @@ async def variable(var):
         )
     heroku_var = app.config()
     await edit_or_reply(var, f"`Changing goodcat to badcat wait for 2-3 minutes.`")
-    heroku_var["UPSTREAM_REPO"] = "https://github.com/Jisan09/catuserbot"
+    heroku_var["UPSTREAM_REPO_BRANCH"] = "badcat"
 
 
 CMD_HELP.update(
@@ -305,6 +305,6 @@ CMD_HELP.update(
         "\n•  **Function :** Deploy your userbot.So even you restart it doesnt go back to previous version"
         "\nThis will triggered deploy always, even no updates."
         "\n\n•  **Syntax : **`.badcat`"
-        "\n•  **Function :** Shifts from official cat repo to jisan's repo(for gali commands)"
+        "\n•  **Function :** Shifts from goodcat repo to badcat repo"
     }
 )
