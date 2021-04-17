@@ -17,9 +17,9 @@ heroku_api = "https://api.heroku.com"
 UPSTREAM_REPO_BRANCH = Config.UPSTREAM_REPO_BRANCH
 
 if Config.UPSTREAM_REPO == "goodcat":
-    UPSTREAM_REPO_URL = "https://github.com/sandy1709/catuserbot"
+    UPSTREAM_REPO_URL = "https://github.com/secretsofsuccess360/tguserbot"
 elif Config.UPSTREAM_REPO == "badcat":
-    UPSTREAM_REPO_URL = "https://github.com/Jisan09/catuserbot"
+    UPSTREAM_REPO_URL = "https://github.com/secretsofsuccess360/tguserbot"
 else:
     UPSTREAM_REPO_URL = Config.UPSTREAM_REPO
 
@@ -29,7 +29,7 @@ NO_HEROKU_APP_CFGD = "no heroku application found, but a key given? 😕 "
 HEROKU_GIT_REF_SPEC = "HEAD:refs/heads/master"
 RESTARTING_APP = "re-starting heroku application"
 IS_SELECTED_DIFFERENT_BRANCH = (
-    "looks like a custom branch {branch_name} "
+    "looks like a master branch {branch_name} "
     "is being used:\n"
     "in this case, Updater is unable to identify the branch to be updated."
     "please check out to an official branch, and re-start the updater."
@@ -146,7 +146,7 @@ async def upstream(event):
     if ac_br != UPSTREAM_REPO_BRANCH:
         await event.edit(
             "**[UPDATER]:**\n"
-            f"`Looks like you are using your own custom branch ({ac_br}). "
+            f"`Looks like you are using your own master branch ({ac_br}). "
             "in that case, Updater is unable to identify "
             "which branch is to be merged. "
             "please checkout to any official branch`"
@@ -272,8 +272,8 @@ async def upstream(event):
     await deploy(event, repo, ups_rem, ac_br, txt)
 
 
-@bot.on(admin_cmd(pattern=r"badcat$", outgoing=True))
-@bot.on(sudo_cmd(pattern=r"badcat$", allow_sudo=True))
+@bot.on(admin_cmd(pattern=r"goodcat$", outgoing=True))
+@bot.on(sudo_cmd(pattern=r"goodcat$", allow_sudo=True))
 async def variable(var):
     if Config.HEROKU_API_KEY is None:
         return await edit_delete(
@@ -288,8 +288,8 @@ async def variable(var):
             "Set the required var in heroku to function this normally `HEROKU_APP_NAME`.",
         )
     heroku_var = app.config()
-    await edit_or_reply(var, f"`Changing goodcat to badcat wait for 2-3 minutes.`")
-    heroku_var["UPSTREAM_REPO"] = "https://github.com/Jisan09/catuserbot"
+    await edit_or_reply(var, f"`Changing badcat to goodcat wait for 2-3 minutes.`")
+    heroku_var["UPSTREAM_REPO_BRANCH"] = "original"
 
 
 CMD_HELP.update(
@@ -304,7 +304,7 @@ CMD_HELP.update(
         "\n\n•  **Syntax : **`.update deploy`"
         "\n•  **Function :** Deploy your userbot.So even you restart it doesnt go back to previous version"
         "\nThis will triggered deploy always, even no updates."
-        "\n\n•  **Syntax : **`.badcat`"
-        "\n•  **Function :** Shifts from official cat repo to jisan's repo(for gali commands)"
+        "\n\n•  **Syntax : **`.goodcat`"
+        "\n•  **Function :** Shifts from Badcat bot to goodcat Bot"
     }
 )
