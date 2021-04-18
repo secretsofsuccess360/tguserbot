@@ -139,7 +139,7 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
             ]
             result = builder.article(
                 title="secret message",
-                text=f"🔒 A whisper message to {sandy}, Only he/she can open it.",
+                text=f"🔒 A secret message to {sandy}, Only he/she can open it.",
                 buttons=buttons,
             )
             await event.answer([result] if result else None)
