@@ -34,7 +34,11 @@ else:
 
 try:
     if Config.HEROKU_API_KEY is not None or Config.HEROKU_APP_NAME is not None:
-	@@ -44,6 +42,7 @@
+        HEROKU_APP = heroku3.from_key(Config.HEROKU_API_KEY).apps()[
+            Config.HEROKU_APP_NAME
+        ]
+    else:
+        HEROKU_APP = None
 except Exception:
     HEROKU_APP = None
 
@@ -42,7 +46,13 @@ except Exception:
 # Global Configiables
 COUNT_MSG = 0
 USERS = {}
-	@@ -57,21 +56,3 @@
+COUNT_PM = {}
+LASTMSG = {}
+CMD_HELP = {}
+ISAFK = False
+AFKREASON = None
+CMD_LIST = {}
+SUDO_LIST = {}
 # for later purposes
 INT_PLUG = ""
 LOAD_PLUG = {}
