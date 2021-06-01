@@ -8,7 +8,7 @@ from .core.session import catub
 
 __version__ = "3.0.0"
 __license__ = "GNU Affero General Public License v3.0"
-__author__ = "CatUserBot <https://github.com/sandy1709/catuserbot>"
+__author__ = "UserBot <https://github.com/secretsofsuccess360/tguserbot>"
 __copyright__ = "CatUserBot Copyright (C) 2020 - 2021  " + __author__
 
 catub.version = __version__
